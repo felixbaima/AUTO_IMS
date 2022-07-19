@@ -1,0 +1,43 @@
+import pyautogui
+import time
+from datetime import date,  timedelta
+
+diastr =(date.today() + timedelta(days=-1))
+dia=(diastr.strftime('%d%m%Y'))
+
+#print(pyautogui.position())
+
+#pyautogui.alert("O código vai começar. Não use nada do seu computador enquanto o código está rodando")
+#pyautogui.PAUSE = 0.5
+
+# entrar no EDI #
+pyautogui.hotkey('winleft', 'd')
+pyautogui.doubleClick(1312, 23)
+time.sleep(15)
+pyautogui.moveTo(742, 398)
+pyautogui.press('enter');pyautogui.write("2720");pyautogui.press('enter')
+time.sleep(15)
+#ABRIR IMS
+pyautogui.click(51, 30) # SISTEMAS INTEGRADOS
+time.sleep(3)
+pyautogui.click(107, 76) #IMS
+time.sleep(3)
+pyautogui.click(775, 302) #FILIAL
+time.sleep(2)
+pyautogui.click(700, 317) #lOCAL ESTOQUE
+time.sleep(2)
+pyautogui.click(619, 401) #DATA INICIAL
+time.sleep(2)
+pyautogui.write(dia)
+pyautogui.click(732, 403) #DATA FINAL
+time.sleep(2)
+pyautogui.write(dia)
+pyautogui.click(624, 494) #EXPORTAR
+time.sleep(1)
+pyautogui.click(671, 439) #FIM
+time.sleep(60)
+pyautogui.click(761, 439) #FIM GERAL
+time.sleep(4)
+
+
+pyautogui.alert("O código acabou de rodar. Pode usar o seu computador de novo")
